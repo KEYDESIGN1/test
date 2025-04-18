@@ -4,7 +4,6 @@
   <meta charset="UTF-8">
   <title>روابط التواصل | اسم المتجر</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; img-src 'self' data:; script-src 'self' https://www.soundjay.com;">
   <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;700&display=swap" rel="stylesheet">
   <style>
     :root {
@@ -68,7 +67,7 @@
     .logo {
       width: 110px;
       height: 110px;
-      border-radius: 50%;
+      border-radius: 20px;
       border: 3px solid #eee;
       object-fit: cover;
       animation: pop 0.8s ease;
@@ -198,7 +197,7 @@
 
   <div class="card">
     <div>
-      <!-- الشعار الآن دائري -->
+      <!-- الشعار اعيد للجزء العلوي -->
       <img src="https://via.placeholder.com/110" alt="الشعار" class="logo">
 
       <h1 id="store-name">اسم المتجر</h1>
@@ -287,14 +286,13 @@
     function playSound(action) {
       let audio;
       if (action === 'copy') {
-        audio = new Audio('https://www.soundjay.com/button/beep-07.wav');
+        audio = new Audio('https://www.soundjay.com/button/beep-07.wav'); // مؤثر صوتي عند النسخ
       } else if (action === 'toggle') {
-        audio = new Audio('https://www.soundjay.com/button/switch-1.wav');
+        audio = new Audio('https://www.soundjay.com/button/beep-08b.wav'); // مؤثر صوتي عند التبديل
       }
-      if (audio) {
-        audio.play();
-      }
+      audio.play();
     }
   </script>
+
 </body>
 </html>
