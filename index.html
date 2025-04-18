@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html lang="ar">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>معرض أعمالي</title>
+    <link href="https://fonts.googleapis.com/css2?family=The+Sans:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body, html {
+            height: 100%;
+            width: 100%;
+            font-family: 'The Sans', sans-serif;
+        }
+
+        .background {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: url('https://h.top4top.io/p_3272icu1s0.jpg'); /* تم تحديث رابط الخلفية هنا */
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+            z-index: -1;
+        }
+
+        .content {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            height: 100vh; /* اجعل المحتوى في منتصف الشاشة */
+            text-align: center;
+        }
+
+        .logo-container {
+            width: 150px;
+            height: 150px;
+            background-color: #fff;
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            overflow: hidden;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+        }
+
+        .logo-container img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .name {
+            font-size: 28px;
+            font-weight: bold;
+            color: #000;
+            margin-top: 15px;
+            letter-spacing: 3px;
+        }
+
+        .description {
+            font-size: 16px;
+            color: #333;
+            margin-top: 10px;
+            max-width: 80%;
+        }
+
+        .social-icons {
+            margin-top: 20px;
+        }
+
+        .social-icons a {
+            margin: 0 15px;
+            text-decoration: none; /* إخفاء النص تحت الأيقونة */
+        }
+
+        .social-icons img {
+            width: 40px;
+            height: 40px;
+            transition: transform 0.3s ease;
+            object-fit: contain; /* ضمان أن الأيقونة تظهر بشكل مربع */
+        }
+
+        .social-icons img:hover {
+            transform: scale(1.1);
+        }
+
+        .portfolio-container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin-top: 30px;
+        }
+
+        .oval-link {
+            display: inline-block;
+            padding: 20px 50px;
+            background-color: #fff;
+            border-radius: 50px;
+            border: 2px solid #000;
+            cursor: pointer;
+            text-align: center;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+            margin-top: 20px;
+            text-decoration: none;
+        }
+
+        .oval-link .portfolio-text {
+            font-size: 24px;
+            font-weight: bold;
+            color: #000;
+        }
+
+        @media (max-width: 768px) {
+            .logo-container {
+                width: 120px;
+                height: 120px;
+            }
+
+            .name {
+                font-size: 24px;
+                letter-spacing: 2px;
+            }
+
+            .description {
+                font-size: 14px;
+            }
+
+            .social-icons img {
+                width: 35px;
+                height: 35px;
+            }
+
+            .portfolio-container .portfolio-text {
+                font-size: 20px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .content {
+                height: auto;
+                padding-top: 30%;
+            }
+
+            .name {
+                font-size: 20px;
+            }
+
+            .description {
+                font-size: 12px;
+            }
+
+            .social-icons img {
+                width: 30px;
+                height: 30px;
+            }
+
+            .portfolio-container {
+                flex-direction: column;
+            }
+
+            .portfolio-container .portfolio-text {
+                font-size: 18px;
+            }
+
+            .portfolio-container .oval-link {
+                padding: 8px 30px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="background"></div> <!-- الخلفية -->
+    <div class="content">
+        <!-- الدائرة مع الشعار -->
+        <div class="logo-container">
+            <img src="https://i.top4top.io/p_3271to40j0.jpg" alt="شعار"> <!-- شعارك -->
+        </div>
+        <!-- الاسم -->
+        <div class="name">KEY_DESIGN</div>
+        <!-- الوصف -->
+        <div class="description">
+            مرحبًا بكم في معرض أعمالي، حيث تجدون أفضل التصاميم المبدعة التي أتممتها في مجال الجرافيك.
+        </div>
+        <!-- أيقونات التواصل الاجتماعي -->
+        <div class="social-icons">
+            <a href="https://www.instagram.com/key_design_am/" target="_blank">
+                <img src="https://h.top4top.io/s_3275wfbk51.jpg" alt="إنستجرام">
+            </a>
+            <a href="https://www.tiktok.com/@key_design7" target="_blank">
+                <img src="https://f.top4top.io/p_3271837ug0.png" alt="تيك توك">
+            </a>
+            <a href="https://wa.me/966545473980" target="_blank">
+                <img src="https://h.top4top.io/p_3271w4xxr2.png" alt="واتساب">
+            </a>
+            <a href="mailto:keydesignam@gmail.com" target="_blank">
+                <img src="https://i.top4top.io/p_3271z5xqr3.png" alt="بريد إلكتروني">
+            </a>
+        </div>
+
+        <!-- رابط معرض الأعمال مع الشكل المستطيل البيضاوي -->
+        <a href="https://keydesign1.github.io/key_design_a3mal/" class="oval-link"> <!-- رابط المعرض الجديد -->
+            <div class="portfolio-text">معرض أعمالي</div>
+        </a>
+    </div>
+</body>
+</html>
