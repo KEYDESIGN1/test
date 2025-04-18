@@ -1,215 +1,300 @@
 <!DOCTYPE html>
-<html lang="ar">
+<html lang="ar" dir="rtl">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>معرض أعمالي</title>
-    <link href="https://fonts.googleapis.com/css2?family=The+Sans:wght@400;700&display=swap" rel="stylesheet">
-    <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
+  <meta charset="UTF-8">
+  <title>روابط التواصل | اسم المتجر</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; img-src 'self' data:; script-src 'self' https://www.soundjay.com;">
+  <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg-image: url('https://via.placeholder.com/800');
+      --card-bg: #ffffff;
+      --social-bg: #f9f9f9;
+      --text-color: #222;
+      --subtitle-color: #777;
+    }
 
-        body, html {
-            height: 100%;
-            width: 100%;
-            font-family: 'The Sans', sans-serif;
-        }
+    body.dark {
+      --card-bg: #1e1e1e;
+      --social-bg: #2c2c2c;
+      --text-color: #f0f0f0;
+      --subtitle-color: #aaa;
+    }
 
-        .background {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background-image: url('https://h.top4top.io/p_3272icu1s0.jpg'); /* تم تحديث رابط الخلفية هنا */
-            background-size: cover;
-            background-position: center;
-            background-attachment: fixed;
-            z-index: -1;
-        }
+    body {
+      margin: 0;
+      font-family: 'Cairo', sans-serif;
+      background-color: #f2f2f2;
+      background-image: var(--bg-image);
+      background-size: cover;
+      background-position: center;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      padding: 30px 15px;
+      min-height: 100vh;
+      transition: background-color 0.5s ease, background-image 0.5s ease;
+    }
 
-        .content {
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-            height: 100vh; /* اجعل المحتوى في منتصف الشاشة */
-            text-align: center;
-        }
+    body.dark {
+      background-color: #121212;
+      background-image: none;
+    }
 
-        .logo-container {
-            width: 150px;
-            height: 150px;
-            background-color: #fff;
-            border-radius: 50%;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            overflow: hidden;
-            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
-        }
+    .card {
+      background: var(--card-bg);
+      padding: 30px 20px;
+      border-radius: 20px;
+      box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+      max-width: 480px;
+      width: 100%;
+      text-align: center;
+      backdrop-filter: blur(6px);
+      animation: fadeIn 1.2s ease;
+      color: var(--text-color);
+      transition: 0.4s ease;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      min-height: 650px;
+    }
 
-        .logo-container img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-        }
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(30px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
 
-        .name {
-            font-size: 28px;
-            font-weight: bold;
-            color: #000;
-            margin-top: 15px;
-            letter-spacing: 3px;
-        }
+    .logo {
+      width: 110px;
+      height: 110px;
+      border-radius: 50%;
+      border: 3px solid #eee;
+      object-fit: cover;
+      animation: pop 0.8s ease;
+      margin: 30px auto;
+    }
 
-        .description {
-            font-size: 16px;
-            color: #333;
-            margin-top: 10px;
-            max-width: 80%;
-        }
+    @keyframes pop {
+      0% { transform: scale(0.8); opacity: 0; }
+      100% { transform: scale(1); opacity: 1; }
+    }
 
-        .social-icons {
-            margin-top: 20px;
-        }
+    h1 {
+      font-size: 26px;
+      color: var(--text-color);
+      margin-bottom: 5px;
+      animation: slideDown 0.6s ease;
+    }
 
-        .social-icons a {
-            margin: 0 15px;
-            text-decoration: none; /* إخفاء النص تحت الأيقونة */
-        }
+    @keyframes slideDown {
+      from { transform: translateY(-20px); opacity: 0; }
+      to { transform: translateY(0); opacity: 1; }
+    }
 
-        .social-icons img {
-            width: 40px;
-            height: 40px;
-            transition: transform 0.3s ease;
-            object-fit: contain; /* ضمان أن الأيقونة تظهر بشكل مربع */
-        }
+    .subtitle {
+      color: var(--subtitle-color);
+      margin-bottom: 25px;
+      animation: fadeIn 1.2s ease;
+    }
 
-        .social-icons img:hover {
-            transform: scale(1.1);
-        }
+    .social-link {
+      display: flex;
+      align-items: center;
+      justify-content: flex-start;
+      background: var(--social-bg);
+      margin: 10px 0;
+      padding: 12px 16px;
+      border-radius: 12px;
+      text-decoration: none;
+      color: var(--text-color);
+      font-weight: 500;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.05);
+      transition: 0.3s ease;
+      animation: slideUp 0.6s ease;
+    }
 
-        .portfolio-container {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            margin-top: 30px;
-        }
+    .social-link:hover {
+      background: #e0f0ff;
+      transform: translateY(-2px);
+    }
 
-        .oval-link {
-            display: inline-block;
-            padding: 20px 50px;
-            background-color: #fff;
-            border-radius: 50px;
-            border: 2px solid #000;
-            cursor: pointer;
-            text-align: center;
-            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
-            margin-top: 20px;
-            text-decoration: none;
-        }
+    body.dark .social-link:hover {
+      background: #333;
+    }
 
-        .oval-link .portfolio-text {
-            font-size: 24px;
-            font-weight: bold;
-            color: #000;
-        }
+    @keyframes slideUp {
+      from { opacity: 0; transform: translateY(20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
 
-        @media (max-width: 768px) {
-            .logo-container {
-                width: 120px;
-                height: 120px;
-            }
+    .social-link img {
+      width: 28px;
+      margin-inline-end: 12px;
+    }
 
-            .name {
-                font-size: 24px;
-                letter-spacing: 2px;
-            }
+    .buttons {
+      margin-top: 20px;
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 10px;
+    }
 
-            .description {
-                font-size: 14px;
-            }
+    .btn {
+      padding: 12px 18px;
+      border: none;
+      border-radius: 10px;
+      font-weight: bold;
+      cursor: pointer;
+      transition: 0.3s;
+    }
 
-            .social-icons img {
-                width: 35px;
-                height: 35px;
-            }
+    .btn.copy {
+      background: #607d8b;
+      color: white;
+    }
 
-            .portfolio-container .portfolio-text {
-                font-size: 20px;
-            }
-        }
+    .btn.copy:hover {
+      background: #455a64;
+    }
 
-        @media (max-width: 480px) {
-            .content {
-                height: auto;
-                padding-top: 30%;
-            }
+    .btn.dark-toggle {
+      background: #333;
+      color: #fff;
+    }
 
-            .name {
-                font-size: 20px;
-            }
+    .btn.dark-toggle:hover {
+      background: #555;
+    }
 
-            .description {
-                font-size: 12px;
-            }
+    .btn.lang-toggle {
+      background: #2196f3;
+      color: white;
+    }
 
-            .social-icons img {
-                width: 30px;
-                height: 30px;
-            }
+    .btn.lang-toggle:hover {
+      background: #1976d2;
+    }
 
-            .portfolio-container {
-                flex-direction: column;
-            }
+    .footer {
+      margin-top: 20px;
+      font-size: 13px;
+      color: #999;
+    }
 
-            .portfolio-container .portfolio-text {
-                font-size: 18px;
-            }
+    @media (max-width: 500px) {
+      .card {
+        padding: 20px;
+      }
 
-            .portfolio-container .oval-link {
-                padding: 8px 30px;
-            }
-        }
-    </style>
+      h1 {
+        font-size: 22px;
+      }
+    }
+  </style>
 </head>
 <body>
-    <div class="background"></div> <!-- الخلفية -->
-    <div class="content">
-        <!-- الدائرة مع الشعار -->
-        <div class="logo-container">
-            <img src="https://i.top4top.io/p_3271to40j0.jpg" alt="شعار"> <!-- شعارك -->
-        </div>
-        <!-- الاسم -->
-        <div class="name">KEY_DESIGN</div>
-        <!-- الوصف -->
-        <div class="description">
-            مرحبًا بكم في معرض أعمالي، حيث تجدون أفضل التصاميم المبدعة التي أتممتها في مجال الجرافيك.
-        </div>
-        <!-- أيقونات التواصل الاجتماعي -->
-        <div class="social-icons">
-            <a href="https://www.instagram.com/key_design_am/" target="_blank">
-                <img src="https://h.top4top.io/s_3275wfbk51.jpg" alt="إنستجرام">
-            </a>
-            <a href="https://www.tiktok.com/@key_design7" target="_blank">
-                <img src="https://f.top4top.io/p_3271837ug0.png" alt="تيك توك">
-            </a>
-            <a href="https://wa.me/966545473980" target="_blank">
-                <img src="https://h.top4top.io/p_3271w4xxr2.png" alt="واتساب">
-            </a>
-            <a href="mailto:keydesignam@gmail.com" target="_blank">
-                <img src="https://i.top4top.io/p_3271z5xqr3.png" alt="بريد إلكتروني">
-            </a>
-        </div>
 
-        <!-- رابط معرض الأعمال مع الشكل المستطيل البيضاوي -->
-        <a href="https://keydesign1.github.io/key_design_a3mal/" class="oval-link"> <!-- رابط المعرض الجديد -->
-            <div class="portfolio-text">معرض أعمالي</div>
-        </a>
+  <div class="card">
+    <div>
+      <!-- الشعار الآن دائري -->
+      <img src="https://via.placeholder.com/110" alt="الشعار" class="logo">
+
+      <h1 id="store-name">اسم المتجر</h1>
+      <p class="subtitle" id="subtitle">كل وسائل التواصل معنا في مكان واحد</p>
+
+      <a href="#" class="social-link" target="_blank">
+        <img src="https://cdn-icons-png.flaticon.com/512/733/733585.png" alt="واتساب">
+        <span class="link-text" data-ar="واتساب" data-en="WhatsApp">واتساب</span>
+      </a>
+
+      <a href="#" class="social-link" target="_blank">
+        <img src="https://cdn-icons-png.flaticon.com/512/2111/2111463.png" alt="إنستجرام">
+        <span class="link-text" data-ar="إنستجرام" data-en="Instagram">إنستجرام</span>
+      </a>
+
+      <a href="#" class="social-link" target="_blank">
+        <img src="https://cdn-icons-png.flaticon.com/512/3046/3046121.png" alt="تيك توك">
+        <span class="link-text" data-ar="تيك توك" data-en="TikTok">تيك توك</span>
+      </a>
+
+      <a href="#" class="social-link" target="_blank">
+        <img src="https://cdn-icons-png.flaticon.com/512/3670/3670151.png" alt="تويتر">
+        <span class="link-text" data-ar="تويتر" data-en="Twitter">تويتر</span>
+      </a>
+
+      <a href="#" class="social-link">
+        <img src="https://cdn-icons-png.flaticon.com/512/732/732200.png" alt="بريد">
+        <span class="link-text" data-ar="البريد الإلكتروني" data-en="Email">البريد الإلكتروني</span>
+      </a>
+
+      <div class="buttons">
+        <button class="btn copy" onclick="copyLink()">نسخ الرابط</button>
+        <button class="btn dark-toggle" onclick="toggleDark(this)">الوضع الليلي</button>
+        <button class="btn lang-toggle" onclick="toggleLang()">English</button>
+      </div>
+
+      <div class="footer">© 2025 جميع الحقوق محفوظة</div>
     </div>
+  </div>
+
+  <script>
+    function copyLink() {
+      navigator.clipboard.writeText(window.location.href).then(() => {
+        playSound('copy'); // المؤثر الصوتي عند نسخ الرابط
+        alert("تم نسخ الرابط!");
+      });
+    }
+
+    function toggleDark(button) {
+      document.body.classList.toggle("dark");
+      if (document.body.classList.contains("dark")) {
+        button.textContent = "الوضع النهاري";
+      } else {
+        button.textContent = "الوضع الليلي";
+      }
+      playSound('toggle');
+    }
+
+    let currentLang = "ar";
+    function toggleLang() {
+      const elements = document.querySelectorAll(".link-text");
+      const storeName = document.getElementById("store-name");
+      const subtitle = document.getElementById("subtitle");
+      const langBtn = document.querySelector(".lang-toggle");
+
+      if (currentLang === "ar") {
+        document.documentElement.lang = "en";
+        document.documentElement.dir = "ltr";
+        elements.forEach(el => el.textContent = el.getAttribute("data-en"));
+        storeName.textContent = "Store Name";
+        subtitle.textContent = "All our social links in one place";
+        langBtn.textContent = "العربية";
+        currentLang = "en";
+      } else {
+        document.documentElement.lang = "ar";
+        document.documentElement.dir = "rtl";
+        elements.forEach(el => el.textContent = el.getAttribute("data-ar"));
+        storeName.textContent = "اسم المتجر";
+        subtitle.textContent = "كل وسائل التواصل معنا في مكان واحد";
+        langBtn.textContent = "English";
+        currentLang = "ar";
+      }
+      playSound('toggle');
+    }
+
+    function playSound(action) {
+      let audio;
+      if (action === 'copy') {
+        audio = new Audio('https://www.soundjay.com/button/beep-07.wav');
+      } else if (action === 'toggle') {
+        audio = new Audio('https://www.soundjay.com/button/switch-1.wav');
+      }
+      if (audio) {
+        audio.play();
+      }
+    }
+  </script>
 </body>
 </html>
