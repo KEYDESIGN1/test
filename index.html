@@ -7,18 +7,12 @@
   <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;700&display=swap" rel="stylesheet">
   <style>
     :root {
-      --bg-image: url('https://via.placeholder.com/800');
-      --card-bg: #ffffff;
+      --bg-image: url('https://a.top4top.io/p_33962eicw1.jpg');
+      --card-bg: transparent;
+      --card-image: url('https://b.top4top.io/p_3396cq1n12.jpg');
       --social-bg: #f9f9f9;
       --text-color: #222;
       --subtitle-color: #777;
-    }
-
-    body.dark {
-      --card-bg: #1e1e1e;
-      --social-bg: #2c2c2c;
-      --text-color: #f0f0f0;
-      --subtitle-color: #aaa;
     }
 
     body {
@@ -36,20 +30,18 @@
       transition: background-color 0.5s ease, background-image 0.5s ease;
     }
 
-    body.dark {
-      background-color: #121212;
-      background-image: none;
-    }
-
     .card {
       background: var(--card-bg);
+      background-image: var(--card-image);
+      background-size: cover;
+      background-position: center;
       padding: 30px 20px;
       border-radius: 20px;
       box-shadow: 0 10px 25px rgba(0,0,0,0.1);
       max-width: 480px;
       width: 100%;
       text-align: center;
-      backdrop-filter: blur(6px);
+      backdrop-filter: blur(0px);
       animation: fadeIn 1.2s ease;
       color: var(--text-color);
       transition: 0.4s ease;
@@ -71,7 +63,7 @@
       border: 3px solid #eee;
       object-fit: cover;
       animation: pop 0.8s ease;
-      margin: 30px auto;
+      margin: 50px auto 20px;
     }
 
     @keyframes pop {
@@ -118,15 +110,6 @@
       transform: translateY(-2px);
     }
 
-    body.dark .social-link:hover {
-      background: #333;
-    }
-
-    @keyframes slideUp {
-      from { opacity: 0; transform: translateY(20px); }
-      to { opacity: 1; transform: translateY(0); }
-    }
-
     .social-link img {
       width: 28px;
       margin-inline-end: 12px;
@@ -158,15 +141,6 @@
       background: #455a64;
     }
 
-    .btn.dark-toggle {
-      background: #333;
-      color: #fff;
-    }
-
-    .btn.dark-toggle:hover {
-      background: #555;
-    }
-
     .btn.lang-toggle {
       background: #2196f3;
       color: white;
@@ -194,43 +168,40 @@
   </style>
 </head>
 <body>
-
   <div class="card">
     <div>
-      <!-- الشعار اعيد للجزء العلوي -->
-      <img src="https://c.top4top.io/p_3345rdeaa5.jpg" alt="الشعار" class="logo">
-
+      <img src="https://l.top4top.io/p_3396c53ui0.png" alt="الشعار" class="logo">
       <h1 id="store-name">اسم المتجر</h1>
       <p class="subtitle" id="subtitle">كل وسائل التواصل معنا في مكان واحد</p>
-
-      <a href="#" class="social-link" target="_blank">
+      
+      <!-- روابط التواصل مع خلفية مستطيلة وقابلة للتخصيص -->
+      <a href="#" class="social-link whatsapp" target="_blank" style="background-image: url('https://example.com/whatsapp-bg.jpg');">
         <img src="https://cdn-icons-png.flaticon.com/512/733/733585.png" alt="واتساب">
         <span class="link-text" data-ar="واتساب" data-en="WhatsApp">واتساب</span>
       </a>
 
-      <a href="#" class="social-link" target="_blank">
+      <a href="#" class="social-link instagram" target="_blank" style="background-image: url('https://example.com/instagram-bg.jpg');">
         <img src="https://cdn-icons-png.flaticon.com/512/2111/2111463.png" alt="إنستجرام">
         <span class="link-text" data-ar="إنستجرام" data-en="Instagram">إنستجرام</span>
       </a>
 
-      <a href="#" class="social-link" target="_blank">
+      <a href="#" class="social-link tiktok" target="_blank" style="background-image: url('https://example.com/tiktok-bg.jpg');">
         <img src="https://cdn-icons-png.flaticon.com/512/3046/3046121.png" alt="تيك توك">
         <span class="link-text" data-ar="تيك توك" data-en="TikTok">تيك توك</span>
       </a>
 
-      <a href="#" class="social-link" target="_blank">
+      <a href="#" class="social-link twitter" target="_blank" style="background-image: url('https://example.com/twitter-bg.jpg');">
         <img src="https://cdn-icons-png.flaticon.com/512/3670/3670151.png" alt="تويتر">
         <span class="link-text" data-ar="تويتر" data-en="Twitter">تويتر</span>
       </a>
 
-      <a href="#" class="social-link">
+      <a href="#" class="social-link email" style="background-image: url('https://example.com/email-bg.jpg');">
         <img src="https://cdn-icons-png.flaticon.com/512/732/732200.png" alt="بريد">
         <span class="link-text" data-ar="البريد الإلكتروني" data-en="Email">البريد الإلكتروني</span>
       </a>
 
       <div class="buttons">
         <button class="btn copy" onclick="copyLink()">نسخ الرابط</button>
-        <button class="btn dark-toggle" onclick="toggleDark(this)">الوضع الليلي</button>
         <button class="btn lang-toggle" onclick="toggleLang()">English</button>
       </div>
 
@@ -241,58 +212,29 @@
   <script>
     function copyLink() {
       navigator.clipboard.writeText(window.location.href).then(() => {
-        playSound('copy'); // المؤثر الصوتي عند نسخ الرابط
         alert("تم نسخ الرابط!");
       });
     }
 
-    function toggleDark(button) {
-      document.body.classList.toggle("dark");
-      if (document.body.classList.contains("dark")) {
-        button.textContent = "الوضع النهاري";
-      } else {
-        button.textContent = "الوضع الليلي";
-      }
-      playSound('toggle');
-    }
-
-    let currentLang = "ar";
     function toggleLang() {
-      const elements = document.querySelectorAll(".link-text");
-      const storeName = document.getElementById("store-name");
-      const subtitle = document.getElementById("subtitle");
-      const langBtn = document.querySelector(".lang-toggle");
-
-      if (currentLang === "ar") {
-        document.documentElement.lang = "en";
-        document.documentElement.dir = "ltr";
-        elements.forEach(el => el.textContent = el.getAttribute("data-en"));
-        storeName.textContent = "Store Name";
-        subtitle.textContent = "All our social links in one place";
-        langBtn.textContent = "العربية";
-        currentLang = "en";
+      var isArabic = document.body.getAttribute('dir') === 'rtl';
+      if (isArabic) {
+        document.getElementById('store-name').textContent = 'Store Name';
+        document.getElementById('subtitle').textContent = 'All social media in one place';
+        document.querySelectorAll('.link-text').forEach((link) => {
+          link.textContent = link.getAttribute('data-en');
+        });
+        document.querySelector('.btn.lang-toggle').textContent = 'عربي';
       } else {
-        document.documentElement.lang = "ar";
-        document.documentElement.dir = "rtl";
-        elements.forEach(el => el.textContent = el.getAttribute("data-ar"));
-        storeName.textContent = "اسم المتجر";
-        subtitle.textContent = "كل وسائل التواصل معنا في مكان واحد";
-        langBtn.textContent = "English";
-        currentLang = "ar";
+        document.getElementById('store-name').textContent = 'اسم المتجر';
+        document.getElementById('subtitle').textContent = 'كل وسائل التواصل معنا في مكان واحد';
+        document.querySelectorAll('.link-text').forEach((link) => {
+          link.textContent = link.getAttribute('data-ar');
+        });
+        document.querySelector('.btn.lang-toggle').textContent = 'English';
       }
-      playSound('toggle');
-    }
-
-    function playSound(action) {
-      let audio;
-      if (action === 'copy') {
-        audio = new Audio('https://www.soundjay.com/button/beep-07.wav'); // مؤثر صوتي عند النسخ
-      } else if (action === 'toggle') {
-        audio = new Audio('https://www.soundjay.com/button/beep-08b.wav'); // مؤثر صوتي عند التبديل
-      }
-      audio.play();
+      document.body.setAttribute('dir', isArabic ? 'ltr' : 'rtl');
     }
   </script>
-
 </body>
 </html>
